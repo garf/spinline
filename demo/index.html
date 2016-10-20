@@ -19,7 +19,7 @@
     </style>
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script src="./spinline.jquery.js"></script>
+    <script src="../src/spinline.jquery.js"></script>
 </head>
 <body>
     <div>
@@ -27,12 +27,17 @@
         <div class="some-block">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus eligendi incidunt iure, quo sequi sint sunt vel? Architecto culpa deserunt est ipsa laborum libero neque, nobis placeat rerum sed velit!</p>
             <br />
-            <button type="button" class="js-spinline-show">Show Spinline</button>
-            <button type="button" class="js-spinline-hide">Hide Spinline</button>
+            <button type="button" class="js-spinline-start">Start Spinlines</button>
+            <button type="button" class="js-spinline-pause">Pause Spinlines</button>
+            <button type="button" class="js-spinline-proceed">Continue Spinlines</button>
+            <button type="button" class="js-spinline-finish">Finish Spinlines</button>
+            <button type="button" class="js-spinline-remove">Remove Spinlines</button>
         </div>
 
-        <div class="some-block">
+        <div class="some-block" id="second-block">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus eligendi incidunt iure, quo sequi sint sunt vel? Architecto culpa deserunt est ipsa laborum libero neque, nobis placeat rerum sed velit!</p>
+            <br />
+            <button type="button" class="js-spinline-finish-second">Finish only second Spinline</button>
         </div>
     </div>
     <script src="./demo.js"></script>

@@ -1,0 +1,25 @@
+{
+  "name": "spinline",
+  "version": "1.0.2",
+  "description": "Ajax loading spinner line",
+  "main": "src/spinline.jquery.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garf/spinline.git"
+  },
+  "keywords": [
+    "jquery",
+    "loader",
+    "ajax",
+    "youtube"
+  ],
+  "author": "Dinar Garipov (garf)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/garf/spinline/issues"
+  },
+  "homepage": "https://github.com/garf/spinline#readme"
+}

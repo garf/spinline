@@ -26,4 +26,7 @@ $(function () {
     $('.js-spinline-finish-second').click(function () {
         $('#second-block').spinline('finish');
     });
+    $('.js-spinline-random').click(function () {
+        $('.some-block').spinline('set', (Math.floor(Math.random() * (99 - 3 + 1)) + 3) + '%');
+    });
 });

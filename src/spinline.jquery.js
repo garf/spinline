@@ -46,6 +46,8 @@
                 _startMove = function () {
                     if (interval) {return;}
 
+                    $spinner.animate({width: settings.initialWidth}, 200);
+
                     interval = setInterval(function () {
                         var currentWidth = _getWidthInPercent($spinner, $blockToAppend);
 
@@ -62,16 +64,8 @@
 
                     document['intervals'][id] = interval;
                 },
-                remove = function () {
+                _createSpinner = function () {
                     _setVariables();
-                    if ($spinner) {
-                        $spinner.remove();
-                    }
-                    $blockToAppend.trigger('spinline:removed');
-                },
-                start = function () {
-                    _setVariables();
-                    $blockToAppend.trigger('spinline:started');
                     if (!$spinner) {
                         $spinner = $('<div />')
                             .attr('id', id)
@@ -86,38 +80,57 @@
                             .addClass(selectors.spinlineBar);
                         $spinner.css(settings.position, 0);
                     }
-                    $spinner.animate({width: settings.initialWidth}, 200);
 
                     $blockToAppend
                         .css('position', 'relative')
                         .append($spinner);
-
+                },
+                remove = function () {
+                    _setVariables();
+                    if ($spinner) {
+                        $spinner.remove();
+                    }
+                    $blockToAppend.trigger('spinline:removed');
+                },
+                start = function () {
+                    _createSpinner();
                     _startMove();
+                    $blockToAppend.trigger('spinline:started');
                 },
                 pause = function () {
-                    $blockToAppend.trigger('spinline:paused');
                     _setVariables();
                     _removeInterval(interval);
+                    $blockToAppend.trigger('spinline:paused');
                 },
                 proceed = function () {
-                    $blockToAppend.trigger('spinline:proceeded');
+                    $blockToAppend.trigger('spinline:proceed');
                     _setVariables();
 
                     if ($spinner) {
                         _startMove();
+                        $blockToAppend.trigger('spinline:proceeded');
                     }
                 },
                 finish = function () {
                     _setVariables();
                     if (!$spinner) {return;}
                     _removeInterval();
-                    $spinner.animate({'width': '100%'}, 300, 'swing', function () {
-                        $spinner.animate({'opacity': '0'}, 300, 'swing', function () {
+                    $spinner.animate({width: '100%'}, 300, 'swing', function () {
+                        $spinner.animate({opacity: '0'}, 300, 'swing', function () {
                             $(this).remove();
                             $blockToAppend.trigger('spinline:finished');
                         });
                     });
-                };
+                },
+                set = function (value) {
+                    _setVariables();
+                    if (!$spinner) {
+                        console.error('No spinline on this container. First call "start" method');
+                        return;
+                    }
+                    $spinner.animate({width: value}, 100);
+                }
+                ;
 
             switch (action) {
                 case 'start': start(); break;
@@ -125,7 +138,8 @@
                 case 'proceed': proceed(); break;
                 case 'finish': finish(); break;
                 case 'remove': remove(); break;
-                default: start(); break;
+                case 'set': set(options); break;
+                default: console.warn('Method "' + action + '" is not implemented'); break;
             }
         });
 

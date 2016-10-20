@@ -28,6 +28,9 @@
             var _getWidthInPercent = function ($block, $parentBlock) {
                     return 100 / parseFloat($parentBlock.css('width')) * parseFloat($block.css('width'));
                 },
+                _getRandom = function (min, max) {
+                    return (Math.floor(Math.random() * (max - min + 1)) + min);
+                },
                 _removeInterval = function () {
                     clearInterval(document['intervals'][id]);
                     document['intervals'][id] = undefined;
@@ -36,7 +39,7 @@
                 _setVariables = function () {
                     $spinner = $blockToAppend.find('.' + selectors.spinlineBar);
                     if ($spinner.length === 0) {
-                        id = selectors.spinlineBarId + (Math.floor(Math.random() * (9000 - 1000 + 1)) + 1000);
+                        id = selectors.spinlineBarId + _getRandom(1000, 9000);
                         $spinner = undefined;
                     } else {
                         id = $spinner.attr('id');
@@ -58,7 +61,7 @@
                             return;
                         }
 
-                        $spinner.animate({'width': newWidth + '%'}, 300);
+                        $spinner.animate({'width': newWidth + '%'}, _getRandom(100, 600));
                         $blockToAppend.trigger('spinline:increased');
                     }, settings.frequency);
 

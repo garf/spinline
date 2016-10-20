@@ -57,7 +57,7 @@
                         }
 
                         $spinner.animate({'width': newWidth + '%'}, 300);
-
+                        $blockToAppend.trigger('spinline:increased');
                     }, settings.frequency);
 
                     document['intervals'][id] = interval;
@@ -67,9 +67,11 @@
                     if ($spinner) {
                         $spinner.remove();
                     }
+                    $blockToAppend.trigger('spinline:removed');
                 },
                 start = function () {
                     _setVariables();
+                    $blockToAppend.trigger('spinline:started');
                     if (!$spinner) {
                         $spinner = $('<div />')
                             .attr('id', id)
@@ -93,10 +95,12 @@
                     _startMove();
                 },
                 pause = function () {
+                    $blockToAppend.trigger('spinline:paused');
                     _setVariables();
                     _removeInterval(interval);
                 },
                 proceed = function () {
+                    $blockToAppend.trigger('spinline:proceeded');
                     _setVariables();
 
                     if ($spinner) {
@@ -110,6 +114,7 @@
                     $spinner.animate({'width': '100%'}, 300, 'swing', function () {
                         $spinner.animate({'opacity': '0'}, 300, 'swing', function () {
                             $(this).remove();
+                            $blockToAppend.trigger('spinline:finished');
                         });
                     });
                 };

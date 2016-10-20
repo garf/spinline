@@ -1,8 +1,14 @@
 $(function () {
     $('.js-spinline-start').click(function () {
         $('.some-block').spinline('start', {
-            color: '#ff00ff',
+            color: '#ff0000',
             position: 'top'
+        });
+    });
+    $('.js-spinline-start-bottom').click(function () {
+        $('.some-block').spinline('start', {
+            color: '#ff0000',
+            position: 'bottom'
         });
     });
     $('.js-spinline-pause').click(function () {

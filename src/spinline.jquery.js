@@ -12,8 +12,8 @@
                 id,
                 defaults = {
                     height: '2px',
-                    color: '#000',
-                    initialWidth: '10%',
+                    color: '#ff0000',
+                    initialWidth: '5%',
                     frequency: 500,
                     step: 3,
                     position: 'bottom'

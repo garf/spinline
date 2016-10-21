@@ -60,7 +60,7 @@
                         }
 
                         $spinner.animate({'width': newWidth + '%'}, _getRandom(100, 600));
-                        $blockToAppend.trigger('spinline:increased');
+                        $blockToAppend.trigger('spinline:increased', {currentWidth: currentWidth, newWidth: newWidth});
                     }, settings.frequency);
 
                     document['intervals'][id] = interval;
@@ -101,15 +101,20 @@
                 pause = function () {
                     _setVariables();
                     _removeInterval(interval);
-                    $blockToAppend.trigger('spinline:paused');
+                    $blockToAppend.trigger('spinline:paused', {
+                        currentWidth: _getWidthInPercent($blockToAppend, $spinner)
+                    });
                 },
                 proceed = function () {
-                    $blockToAppend.trigger('spinline:proceed');
+                    var eventData = {
+                        currentWidth: _getWidthInPercent($blockToAppend, $spinner)
+                    };
+                    $blockToAppend.trigger('spinline:proceed', eventData);
                     _setVariables();
 
                     if ($spinner) {
                         _startMove();
-                        $blockToAppend.trigger('spinline:proceeded');
+                        $blockToAppend.trigger('spinline:proceeded', eventData);
                     }
                 },
                 finish = function () {

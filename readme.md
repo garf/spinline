@@ -43,6 +43,8 @@ $(selector).spinline.('start', {
     position: 'bottom',
     color: '#00ff00'
 });
+
+$(selector).spinline.('set', '50%');
 ```
 
 ### Actions

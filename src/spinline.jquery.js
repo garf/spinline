@@ -49,8 +49,6 @@
                 _startMove = function () {
                     if (interval) {return;}
 
-                    $spinner.animate({width: settings.initialWidth}, 200);
-
                     interval = setInterval(function () {
                         var currentWidth = _getWidthInPercent($spinner, $blockToAppend);
 

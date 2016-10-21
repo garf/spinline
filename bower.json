@@ -1,0 +1,23 @@
+{
+  "name": "spinline",
+  "description": "Ajax loading spinner line",
+  "main": "src/spinline.jquery.js",
+  "authors": [
+    "Dinar Garipov (garf)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "jquery",
+    "loader",
+    "ajax",
+    "youtube"
+  ],
+  "homepage": "https://github.com/garf/spinline",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

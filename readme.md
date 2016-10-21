@@ -69,7 +69,7 @@ $(selector).spinline.('set', '50%');
     // The width that will be set on start
     initialWidth: '5%',
     
-    // How often move the spinner
+    // How often to move the spinner
     frequency: 500,
     
     // Step in percent to increase spinner on every move

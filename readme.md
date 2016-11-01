@@ -55,6 +55,7 @@ $(selector).spinline('set', '50%');
  - `proceed` - Continue paused spinner
  - `remove` - Remove spinner
  - `set` - Manually set the width of spinner. Requires the second parameter as a percentage from entire block.
+ - `get` - Get current spinner data and current width. Always returns array of objects.
  
 ### Parameters
 

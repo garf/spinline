@@ -5,6 +5,8 @@
             document['intervals'] = {};
         }
 
+        var returnValues = [];
+
         this.each(function() {
             var $blockToAppend = $(this),
                 interval,
@@ -106,11 +108,11 @@
                     });
                 },
                 proceed = function () {
+                    _setVariables();
                     var eventData = {
                         currentWidth: _getWidthInPercent($blockToAppend, $spinner)
                     };
                     $blockToAppend.trigger('spinline:proceed', eventData);
-                    _setVariables();
 
                     if ($spinner) {
                         _startMove();
@@ -135,9 +137,19 @@
                         return;
                     }
                     $spinner.animate({width: value}, 50);
+                },
+                get = function () {
+                    _setVariables();
+                    if (!$spinner) {
+                        console.error('No spinline on this container. First call "start" method');
+                        return null;
+                    }
+                    returnValues.push({
+                        element: $blockToAppend,
+                        width: _getWidthInPercent($spinner, $blockToAppend)
+                    });
                 }
                 ;
-
             switch (action) {
                 case 'start': start(); break;
                 case 'pause': pause(); break;
@@ -145,9 +157,14 @@
                 case 'finish': finish(); break;
                 case 'remove': remove(); break;
                 case 'set': set(options); break;
+                case 'get': get(); break;
                 default: console.warn('Method "' + action + '" is not implemented'); break;
             }
         });
+
+        if (returnValues.length > 0) {
+            return returnValues;
+        }
 
         return this;
     };

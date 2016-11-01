@@ -37,14 +37,14 @@ Just download the package and attach spinline.jquery.js script to your page.
 Siple usage examples:
 
 ```javascript
-$(selector).spinline.('start');
+$(selector).spinline('start');
 
-$(selector).spinline.('start', {
+$(selector).spinline('start', {
     position: 'bottom',
     color: '#00ff00'
 });
 
-$(selector).spinline.('set', '50%');
+$(selector).spinline('set', '50%');
 ```
 
 ### Actions

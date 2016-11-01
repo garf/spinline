@@ -134,7 +134,7 @@
                         console.error('No spinline on this container. First call "start" method');
                         return;
                     }
-                    $spinner.animate({width: value}, 100);
+                    $spinner.animate({width: value}, 50);
                 }
                 ;
 

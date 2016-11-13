@@ -78,7 +78,8 @@
                                 position: 'absolute',
                                 left: 0,
                                 width: 0,
-                                boxShadow: "2px 0 20px " + settings.color
+                                boxShadow: "2px 0 20px " + settings.color,
+				'z-index': 2147483647
                             })
                             .addClass(selectors.spinlineBar);
                         $spinner.css(settings.position, 0);

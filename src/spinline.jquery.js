@@ -18,7 +18,8 @@
                     initialWidth: '5%',
                     frequency: 500,
                     step: 3,
-                    position: 'bottom'
+                    position: 'bottom',
+                    zIndex: 1
                 },
                 settings = $.extend(true, {}, defaults, options);
 
@@ -78,7 +79,8 @@
                                 position: 'absolute',
                                 left: 0,
                                 width: 0,
-                                boxShadow: "2px 0 20px " + settings.color
+                                boxShadow: "2px 0 20px " + settings.color,
+                                zIndex: settings.zIndex
                             })
                             .addClass(selectors.spinlineBar);
                         $spinner.css(settings.position, 0);

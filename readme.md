@@ -78,6 +78,9 @@ $(selector).spinline('set', '50%');
     
     // Where to attach spinner
     position: 'bottom'
+    
+    // z-index attribute of spinner
+    zIndex: 1
 }
 ```
 

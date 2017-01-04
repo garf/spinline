@@ -18,6 +18,12 @@ It doesn't cover any of your elements. Very easy to use and looks cool.
 npm install spinline
 ```
 
+#### Yarn
+
+```bash
+yarn add spinline
+```
+
 #### Bower
 
 ```bash
